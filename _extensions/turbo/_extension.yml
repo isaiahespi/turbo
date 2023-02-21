@@ -1,0 +1,37 @@
+title: Turbo Article Format Template
+author: Isaiah Espinoza
+version: 0.1.0
+contributes:
+  formats:
+    common:
+      filters:
+        - color-text.lua
+      shortcodes:
+        - shortcodes.lua
+      knitr:
+        opts_chunk:
+          echo: false
+    pdf:
+      pdf-engine: lualatex
+      documentclass: turbo
+      number-sections: true
+      colorlinks: true
+      urlcolor: Maroon
+      linkcolor: Blue
+      citecolor: Blue
+      filecolor: Blue
+      fig-width: 6.5
+      fig-height: 4.5
+      cite-method: natbib
+      biblio-style: turbo
+      header-includes: |
+        \usepackage{orcidlink}
+        \definecolor{mypink}{RGB}{219, 48, 122}
+      template: turbo.tex
+      template-partials:
+        - "partials/before-body.tex"
+        - "partials/title.tex"
+        - "partials/_authors.tex"
+      format-resources:
+        - turbo.cls
+        - turbo.bst
