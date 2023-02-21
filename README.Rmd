@@ -49,7 +49,7 @@ or in your document yaml
 ```yaml
 format:
   pdf: default
-  simple-article-pdf:
+  turbo-pdf:
     keep-tex: true    
 ```
 You can view a preview of the rendered template at https://github.com/isaiahespi/turbo/blob/main/template.pdf
