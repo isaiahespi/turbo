@@ -1,5 +1,6 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+<!-- Unless your project is a Quarto Project. Then README.Rmd will render an HTML file -->
 
 
 # Turbo Article Template for Quarto
@@ -11,7 +12,7 @@ This is a Quarto template that assists you in creating in simple journal article
 
 ## Creating a New Article
 
-You can use this as a template to create a document by using the following command:
+You can use this as a template to create a document by using the following command in the terminal:
 
 ```bash
 quarto use template isaiahespi/turbo
