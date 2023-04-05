@@ -1,3 +1,7 @@
+<<<<<<< HEAD
 # Add files / folder that are useful to your repo
 # but should not be in the downloaded bundle after `quarto use template`
 style-guide
+=======
+._quarto.yml
+>>>>>>> e413aee8819f14569d5b78890cc9824911c7a40c
