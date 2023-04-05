@@ -1,0 +1,82 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# turbo-lamp
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+This is Isaiah's attempt at creating a pdf template for use with Quarto. I usually do this in RMarkdown, but the future is now.
+
+It's best to start by using a starter template that will include all the necessary...uhhh...things, instead of trying to build a template from scratch (like I often fail at).
+
+## Step 1: Installation for existing document
+
+You can use this format with an existing quarto project or document. From the directory that your quarto project or document is in, run the following command in your terminal
+
+```
+quarto install extension quarto-journals/article-format-template
+
+```
+
+## Step 1a: Alternative, Creating a new article 
+
+Create a new article using the [quarto-journals/article-format-template]{https://github.com/quarto-journals/article-format-template}.
+
+```
+quarto use template quarto-journals/article-format-template
+
+```
+## Step 2: dude I don't even know...
+
+
+
+# Perspective on Politics Template Replicate (pps)
+
+## Creating a New Article
+
+To create a new article using this format:
+
+*TODO*: Replace the `<github-organization>` with your GitHub organization.
+
+```bash
+quarto use template <github-organization>/<%= filesafename %>
+```
+
+This will create a new directory with an example document that uses this format.
+
+## Using with an Existing Document
+
+To add this format to an existing document:
+
+*TODO*: Replace the `<github-organization>` with your GitHub organization.
+
+```bash
+quarto add <github-organization>/<%= filesafename %>
+```
+
+Then, add the format to your document options:
+
+```yaml
+format:
+  <%= filesafename %>-pdf: default
+```    
+
+## Options
+
+*TODO*: If your format has options that can be set via document metadata, describe them.
+
+## Example
+
+Here is the source code for a minimal sample document: [template.qmd](template.qmd).
+
