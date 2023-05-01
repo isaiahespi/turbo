@@ -22,8 +22,9 @@ contributes:
       filecolor: Blue
       fig-width: 6.5
       fig-height: 4.5
-      cite-method: [natbib, biblatex, citproc]
       biblio-style: turbo
+      cite-method: natbib
+      biblio-config: false
       header-includes: |
         \usepackage{orcidlink}
         \definecolor{mypink}{RGB}{219, 48, 122}
