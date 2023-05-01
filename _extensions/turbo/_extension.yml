@@ -23,7 +23,7 @@ contributes:
       fig-width: 6.5
       fig-height: 4.5
       biblio-style: turbo
-      cite-method: natbib
+      #cite-method: natbib
       header-includes: |
         \usepackage{orcidlink}
         \definecolor{mypink}{RGB}{219, 48, 122}
