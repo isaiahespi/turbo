@@ -14,6 +14,8 @@
 %                      package will also work (default: 10pt)
 %    narrowmargins: use narrow margins; useful for twocolumn articles.
 %    normalnumbers: use normal numbers for sectioning (default are roman numbers).
+%    lucida:        use Lucida fonts; this requires Lua/XeLaTeX (default: Palatino
+%                      for pdfLaTeX or TeX Gyre Pagella for Lua/XeLaTeX).
 %    phfthm:        provide theorem and proof environments from the phfthm package.
 %
 % All other options are passed on the extarticle base class/extsizes package. Note
@@ -45,8 +47,8 @@
 \newif\if@normalnumbers\@normalnumbersfalse
 \DeclareOption{normalnumbers}{\@normalnumberstrue}
 
-% \newif\if@lucida\@lucidafalse
-% \DeclareOption{lucida}{\@lucidatrue}
+\newif\if@lucida\@lucidafalse
+\DeclareOption{lucida}{\@lucidatrue}
 
 \newif\if@phfthm\@phfthmfalse
 \DeclareOption{phfthm}{\@phfthmtrue}
