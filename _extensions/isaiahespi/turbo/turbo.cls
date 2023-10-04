@@ -47,28 +47,83 @@
 \newif\if@normalnumbers\@normalnumbersfalse
 \DeclareOption{normalnumbers}{\@normalnumberstrue}
 
-% \newif\if@lucida\@lucidafalse
-% \DeclareOption{lucida}{\@lucidatrue}
+\newif\if@lucida\@lucidafalse
+\DeclareOption{lucida}{\@lucidatrue}
 
-% \newif\if@phfthm\@phfthmfalse
-% \DeclareOption{phfthm}{\@phfthmtrue}
+\newif\if@phfthm\@phfthmfalse
+\DeclareOption{phfthm}{\@phfthmtrue}
 
-\newif\if@biblatex
-\newif\if@twocol
-\newif\if@onehalfspace
-\newif\if@doublespace
-\DeclareOption{biblatex}{\@biblatextrue}
-\DeclareOption{bibtex}{\@biblatexfalse}
-\DeclareOption{twocolumn}{\@twocoltrue}
-\DeclareOption{singlespace}{\@onehalfspacefalse\@doublespacefalse}
-\DeclareOption{onehalfspace}{\@onehalfspacetrue\@doublespacefalse}
-\DeclareOption{doublespace}{\@onehalfspacefalse\@doublespacetrue}
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{extarticle}}
 \ProcessOptions\relax % Process class options
 
 %\LoadClass[twoside,12pt]{article}
 \LoadClass[a4paper]{extarticle} % Load the primary class with set options
+
+%----------------------------------------------------------------------------------------
+%	FONTS AND TYPESETTING
+%----------------------------------------------------------------------------------------
+
+\usepackage{iftex}
+
+\newif\if@unicode\@unicodefalse
+\ifluatex\@unicodetrue\fi
+\ifxetex\@unicodetrue\fi
+
+\if@unicode
+
+  %% For LuaLaTeX or XeLaTeX
+
+   %% When using unicode-math, this must come first
+   \if@phfthm
+      \usepackage{phfthm}
+   \fi
+   \usepackage{amsmath} % already standard with quarto
+   \usepackage{mathtools}
+
+   \usepackage{fontspec}
+   \usepackage[math-style=ISO,bold-style=ISO]{unicode-math}
+
+   \if@lucida
+      \defaultfontfeatures{Scale=.92}
+      \setmainfont{LucidaBrightOT}
+      \setmathfont{LucidaBrightMathOT}
+   \else
+      \setmainfont{TeX Gyre Pagella}
+      \setmathfont{TeX Gyre Pagella Math}
+   \fi
+
+\else
+
+  %% For pdfLaTeX:
+   \usepackage[slantedGreek]{mathpazo} % Use the Palatino font
+   \usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+
+   %% When using unicode-math, this must come first
+   \if@phfthm
+      \usepackage{phfthm}
+   \fi
+   \usepackage{amsmath}
+   \usepackage{mathtools}
+
+\fi
+
+\linespread{1.05} % Line spacing - Palatino needs more space between lines
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+
+%----------------------------------------------------------------------------------------
+%	FURTHER PACKAGES
+%----------------------------------------------------------------------------------------
+
+% \RequirePackage{quoting}
+% \quotingsetup{font=small,indentfirst=false,begintext={``},endtext={''},vskip=0.5\baselineskip,leftmargin=\parindent,rightmargin=0pt}
+
+
+\usepackage[british]{babel} % Language hyphenation and typographical rules
+\usepackage[en-GB]{datetime2}
+%\DTMlangsetup[en-GB]{ord=raise,monthyearsep={,\space}}
+\DTMlangsetup[en-GB]{ord=omit}
+
 
 %----------------------------------------------------------------------------------------
 %	PAGE LAYOUT
@@ -86,17 +141,6 @@
 \usepackage{enumitem} % Customized lists
 \setlist[itemize]{noitemsep} % Make itemize lists more compact
 
-
-% \RequirePackage[marginal]{footmisc}
-% \setlength{\footnotemargin}{0.25em}
-% \def\blfootnote{\gdef\@thefnmark{}\@footnotetext}
-% \renewcommand{\footnotelayout}{\small}
-% \if@doublespace
-%   \appto{\footnotelayout}{\doublespacing}
-% \fi
-% \if@onehalfspace
-%   \appto{\footnotelayout}{\onehalfspacing}
-% \fi
 
 %----------------------------------------------------------------------------------------
 %	TITLE, ABSTRACT AND PAGE HEADERS/FOOTERS
@@ -173,78 +217,6 @@
             bookmarksopen=false}
 
 
-%----------------------------------------------------------------------------------------
-%	FONTS AND TYPESETTING
-%----------------------------------------------------------------------------------------
-
-\usepackage{iftex}
-
-\newif\if@unicode\@unicodefalse
-\ifluatex\@unicodetrue\fi
-\ifxetex\@unicodetrue\fi
-
-\if@unicode
-
-  %% For LuaLaTeX or XeLaTeX
-
-   %% When using unicode-math, this must come first
-   \if@phfthm
-      \usepackage{phfthm}
-   \fi
-   \usepackage{amsmath} % already standard with quarto
-   \usepackage{mathtools}
-
-   \usepackage{fontspec}
-   \usepackage[math-style=ISO,bold-style=ISO]{unicode-math}
-%
-%    \if@lucida
-%       \defaultfontfeatures{Scale=.92}
-%       \setmainfont{LucidaBrightOT}
-%       \setmathfont{LucidaBrightMathOT}
-%    \else
-%       \setmainfont{TeX Gyre Pagella}
-%       \setmathfont{TeX Gyre Pagella Math}
-%    \fi
-%
-\else
-
-  %% For pdfLaTeX:
-   \usepackage[slantedGreek]{mathpazo} % Use the Palatino font
-   \usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
-
-   %% When using unicode-math, this must come first
-   \if@phfthm
-      \usepackage{phfthm}
-   \fi
-   \usepackage{amsmath}
-   \usepackage{mathtools}
-
-\fi
-
-\linespread{1.05} % Line spacing - Palatino needs more space between lines
-\usepackage{microtype} % Slightly tweak font spacing for aesthetics
-
-
-%----------------------------------------------------------------------------------------
-%	FURTHER PACKAGES
-%----------------------------------------------------------------------------------------
-
-% \RequirePackage{quoting}
-% \quotingsetup{font=small,indentfirst=false,begintext={``},endtext={''},vskip=0.5\baselineskip,leftmargin=\parindent,rightmargin=0pt}
-
-
-\usepackage[british]{babel} % Language hyphenation and typographical rules
-\usepackage[en-GB]{datetime2}
-%\DTMlangsetup[en-GB]{ord=raise,monthyearsep={,\space}}
-\DTMlangsetup[en-GB]{ord=omit}
-
-% \RequirePackage[style]{abstract}
-% \RequirePackage{environ}
-% \RequirePackage[explicit]{titlesec}
-% \RequirePackage{tikz,pgffor}
-% \RequirePackage{fancyhdr}
-% \RequirePackage{setspace}
-% \RequirePackage{lastpage}
 
 
 
