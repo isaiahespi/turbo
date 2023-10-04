@@ -53,9 +53,6 @@
 % \newif\if@phfthm\@phfthmfalse
 % \DeclareOption{phfthm}{\@phfthmtrue}
 
-
-
-
 \newif\if@biblatex
 \newif\if@twocol
 \newif\if@onehalfspace
@@ -66,13 +63,12 @@
 \DeclareOption{singlespace}{\@onehalfspacefalse\@doublespacefalse}
 \DeclareOption{onehalfspace}{\@onehalfspacetrue\@doublespacefalse}
 \DeclareOption{doublespace}{\@onehalfspacefalse\@doublespacetrue}
-\ProcessOptions\relax
-%\LoadClass[twoside,12pt]{article}
-\LoadClass[a4paper]{extarticle} % Load the primary class with set options
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{extarticle}}
 \ProcessOptions\relax % Process class options
 
+%\LoadClass[twoside,12pt]{article}
+\LoadClass[a4paper]{extarticle} % Load the primary class with set options
 
 %----------------------------------------------------------------------------------------
 %	HYPERREF SETUP
