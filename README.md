@@ -41,7 +41,7 @@ Here is the source code for a minimal sample document: [template.qmd](template.q
 This produces the following document (click for a full preview):
 
 <!-- pdftools::pdf_convert('template.pdf',pages = 1) -->
-![[template.qmd](template.qmd)](template_1.png)
+![[template.qmd](template.qmd)](figs/template_1.png)
 
 
 ## Usage
