@@ -71,6 +71,94 @@
 \LoadClass[a4paper]{extarticle} % Load the primary class with set options
 
 %----------------------------------------------------------------------------------------
+%	PAGE LAYOUT
+%----------------------------------------------------------------------------------------
+
+\if@narrowmargins
+   \usepackage[a4paper,left=2cm,right=1.5cm,top=2.5cm,bottom=2.5cm]{geometry} % Document margins
+\else
+   \usepackage[a4paper,left=3cm,right=2cm,top=2.5cm,bottom=2.5cm]{geometry} % Document margins
+\fi
+
+\usepackage[hang,small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
+\usepackage{booktabs} % Better looking tables
+
+\usepackage{enumitem} % Customized lists
+\setlist[itemize]{noitemsep} % Make itemize lists more compact
+
+
+% \RequirePackage[marginal]{footmisc}
+% \setlength{\footnotemargin}{0.25em}
+% \def\blfootnote{\gdef\@thefnmark{}\@footnotetext}
+% \renewcommand{\footnotelayout}{\small}
+% \if@doublespace
+%   \appto{\footnotelayout}{\doublespacing}
+% \fi
+% \if@onehalfspace
+%   \appto{\footnotelayout}{\onehalfspacing}
+% \fi
+
+\RequirePackage{quoting}
+\quotingsetup{font=small,indentfirst=false,begintext={``},endtext={''},vskip=0.5\baselineskip,leftmargin=\parindent,rightmargin=0pt}
+
+%----------------------------------------------------------------------------------------
+%	TITLE, ABSTRACT AND PAGE HEADERS/FOOTERS
+%----------------------------------------------------------------------------------------
+
+\RequirePackage{titling} % Customizing the title section
+
+\setlength{\droptitle}{-4\baselineskip} % Move the title up
+
+\pretitle{\begin{center}\LARGE\bfseries} % Article title formatting
+\posttitle{\end{center}\vskip 1em} % Article title closing formatting
+\preauthor{\begin{center}
+           \large \lineskip 0.5em%
+           \begin{tabular}[t]{c}}
+\postauthor{\end{tabular}\par\end{center}\vskip 0.75em}
+\predate{\begin{center}\large}
+\postdate{\par\end{center}\vskip 1em}
+
+\RequirePackage{abstract} % Allows abstract customization
+\renewcommand{\abstractnamefont}{\normalfont\bfseries} % Set the "Abstract" text to bold
+\renewcommand{\abstracttextfont}{\normalfont\small\itshape} % Set the abstract itself to small italic text
+\setlength{\abstitleskip}{0.5em}
+
+\RequirePackage{fancyhdr} % Headers and footers
+\pagestyle{fancy} % All pages have headers and footers
+\fancyhead{} % Blank out the default header
+\fancyfoot{} % Blank out the default footer
+\fancyfoot[RO,LE]{\thepage} % Custom footer text
+
+%----------------------------------------------------------------------------------------
+%	SECTION HEADINGS
+%----------------------------------------------------------------------------------------
+
+\usepackage{titlesec} % Allows customization of titles
+\if@normalnumbers
+   \renewcommand\thesection{\arabic{section}} % Arabic numerals for the sections
+   \renewcommand\thesubsection{\arabic{section}.\arabic{subsection}} % Arabic numerals for subsections
+\else
+   \renewcommand\thesection{\Roman{section}} % Roman numerals for the sections
+   \renewcommand\thesubsection{\roman{subsection}} % Roman numerals for subsections
+\fi
+
+\renewcommand\appendix{\par
+  \setcounter{section}{0}%
+  \setcounter{subsection}{0}%
+  \if@normalnumbers
+     \renewcommand\thesection{\Alph{section}} % Arabic numerals for the sections
+     \renewcommand\thesubsection{\Alph{section}.\arabic{subsection}} % Arabic numerals for subsections
+  \else
+     \renewcommand\thesection{\Alph{section}} % Roman numerals for the sections
+     \renewcommand\thesubsection{\roman{subsection}} % Roman numerals for subsections
+  \fi
+  }
+
+\titleformat{\section}[block]{\large\scshape\centering}{\thesection.}{1em}{} % Change the look of the section titles
+\titleformat{\subsection}[block]{\large}{\thesubsection.}{1em}{} % Change the look of the section titles
+
+
+%----------------------------------------------------------------------------------------
 %	HYPERREF SETUP
 %----------------------------------------------------------------------------------------
 
@@ -180,92 +268,6 @@
 % \RequirePackage{setspace}
 % \RequirePackage{lastpage}
 
-%----------------------------------------------------------------------------------------
-%	PAGE LAYOUT
-%----------------------------------------------------------------------------------------
-
-\if@narrowmargins
-   \usepackage[a4paper,left=2cm,right=1.5cm,top=2.5cm,bottom=2.5cm]{geometry} % Document margins
-\else
-   \usepackage[a4paper,left=3cm,right=2cm,top=2.5cm,bottom=2.5cm]{geometry} % Document margins
-\fi
-
-\usepackage[hang,small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
-\usepackage{booktabs} % Better looking tables
-
-\usepackage{enumitem} % Customized lists
-\setlist[itemize]{noitemsep} % Make itemize lists more compact
-
-
-% \RequirePackage[marginal]{footmisc}
-% \setlength{\footnotemargin}{0.25em}
-% \def\blfootnote{\gdef\@thefnmark{}\@footnotetext}
-% \renewcommand{\footnotelayout}{\small}
-% \if@doublespace
-%   \appto{\footnotelayout}{\doublespacing}
-% \fi
-% \if@onehalfspace
-%   \appto{\footnotelayout}{\onehalfspacing}
-% \fi
-
-\RequirePackage{quoting}
-\quotingsetup{font=small,indentfirst=false,begintext={``},endtext={''},vskip=0.5\baselineskip,leftmargin=\parindent,rightmargin=0pt}
-
-%----------------------------------------------------------------------------------------
-%	TITLE, ABSTRACT AND PAGE HEADERS/FOOTERS
-%----------------------------------------------------------------------------------------
-
-\usepackage{titling} % Customizing the title section
-
-\setlength{\droptitle}{-4\baselineskip} % Move the title up
-
-\pretitle{\begin{center}\LARGE\bfseries} % Article title formatting
-\posttitle{\end{center}\vskip 1em} % Article title closing formatting
-\preauthor{\begin{center}
-           \large \lineskip 0.5em%
-           \begin{tabular}[t]{c}}
-\postauthor{\end{tabular}\par\end{center}\vskip 0.75em}
-\predate{\begin{center}\large}
-\postdate{\par\end{center}\vskip 1em}
-
-\usepackage{abstract} % Allows abstract customization
-\renewcommand{\abstractnamefont}{\normalfont\bfseries} % Set the "Abstract" text to bold
-\renewcommand{\abstracttextfont}{\normalfont\small\itshape} % Set the abstract itself to small italic text
-\setlength{\abstitleskip}{0.5em}
-
-\usepackage{fancyhdr} % Headers and footers
-\pagestyle{fancy} % All pages have headers and footers
-\fancyhead{} % Blank out the default header
-\fancyfoot{} % Blank out the default footer
-\fancyfoot[RO,LE]{\thepage} % Custom footer text
-
-%----------------------------------------------------------------------------------------
-%	SECTION HEADINGS
-%----------------------------------------------------------------------------------------
-
-\usepackage{titlesec} % Allows customization of titles
-\if@normalnumbers
-   \renewcommand\thesection{\arabic{section}} % Arabic numerals for the sections
-   \renewcommand\thesubsection{\arabic{section}.\arabic{subsection}} % Arabic numerals for subsections
-\else
-   \renewcommand\thesection{\Roman{section}} % Roman numerals for the sections
-   \renewcommand\thesubsection{\roman{subsection}} % Roman numerals for subsections
-\fi
-
-\renewcommand\appendix{\par
-  \setcounter{section}{0}%
-  \setcounter{subsection}{0}%
-  \if@normalnumbers
-     \renewcommand\thesection{\Alph{section}} % Arabic numerals for the sections
-     \renewcommand\thesubsection{\Alph{section}.\arabic{subsection}} % Arabic numerals for subsections
-  \else
-     \renewcommand\thesection{\Alph{section}} % Roman numerals for the sections
-     \renewcommand\thesubsection{\roman{subsection}} % Roman numerals for subsections
-  \fi
-  }
-
-\titleformat{\section}[block]{\large\scshape\centering}{\thesection.}{1em}{} % Change the look of the section titles
-\titleformat{\subsection}[block]{\large}{\thesubsection.}{1em}{} % Change the look of the section titles
 
 
 
