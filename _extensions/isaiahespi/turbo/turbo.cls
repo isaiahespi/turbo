@@ -73,10 +73,28 @@
 \LoadClass[a4paper]{extarticle} % Load the primary class with set options
 
 
+%----------------------------------------------------------------------------------------
+%	HYPERREF SETUP
+%----------------------------------------------------------------------------------------
+
+\usepackage[usenames,dvipsnames]{xcolor} % note that xcolor must be loaded before tikz package
+
+\usepackage{hyperref} % For hyperlinks in the PDF
+\hypersetup{hidelinks,
+            colorlinks,
+            breaklinks=true,
+            linkcolor=Blue,
+            filecolor=Blue,
+            citecolor=Blue,
+            urlcolor=Maroon,
+            bookmarksopen=false}
+
 \RequirePackage{silence}
 \WarningFilter*{hyperref}{Ignoring empty anchor}
 \WarningFilter*{hyperref}{Rerun to get}
 \WarningFilter*{microtype}{Unknown slot number of character}
+
+
 
 %----------------------------------------------------------------------------------------
 %	FONTS AND TYPESETTING
@@ -249,21 +267,7 @@
 \titleformat{\section}[block]{\large\scshape\centering}{\thesection.}{1em}{} % Change the look of the section titles
 \titleformat{\subsection}[block]{\large}{\thesubsection.}{1em}{} % Change the look of the section titles
 
-%----------------------------------------------------------------------------------------
-%	HYPERREF SETUP
-%----------------------------------------------------------------------------------------
 
-\usepackage[usenames,dvipsnames]{xcolor}
-
-\usepackage{hyperref} % For hyperlinks in the PDF
-\hypersetup{hidelinks,
-            colorlinks,
-            breaklinks=true,
-            linkcolor=Blue,
-            filecolor=Blue,
-            citecolor=Blue,
-            urlcolor=Maroon,
-            bookmarksopen=false}
 
 %----------------------------------------------------------------------------------------
 
