@@ -10,6 +10,11 @@
 
 This is a Quarto template that assists you in creating in simple journal article-like document. The template allows both single and two-column output.
 
+This template, and much of the wording of the README, was derived primarily from [Christian Marquardt's quarto-simple-article format template](https://github.com/cmarquardt/quarto-simple-article/tree/main). 
+
+Template modification (and refinement for this repository) followed a guide written by [Christopher T. Kenny](https://christophertkenny.com/) found [here](https://christophertkenny.com/posts/2023-07-01-creating-quarto-journal-articles/). I recommend following his tutorial guide if you are interested in created your own Quarto article template, especially for official or officially endorsed templates often found on [Overleaf](https://www.overleaf.com/).
+
+
 ## Creating a New Article
 
 You can use this as a template to create a document by using the following command in the terminal:
@@ -18,7 +23,9 @@ You can use this as a template to create a document by using the following comma
 quarto use template isaiahespi/turbo
 ```
 
-This will install the extension and create an example `.qmd` file, along with a `bibiography.bib` file that you can use as a starting place for your article.
+This will install the extension and create an example `.qmd` file, along with a `bibiography.bib` file that you can use as a starting place for your article. 
+
+To be clear, this will download a folder (i.e., a directory) into your working directory that can be specifically used for your article; it includes the necessary files and such to begin writing and (should) render right "out-of-the-box", so to speak. You will be asked for the directory name for this folder (e.g., "article" or whatever) which will also be used for the name of the `.qmd` file (e.g., article.qmd).
 
 ## Installation For An Existing Document
 
@@ -27,6 +34,14 @@ You may also use this format with an existing Quarto project or document. From t
 ```bash
 quarto install extension isaiahespi/turbo
 ```
+
+## Example
+
+Here is the source code for a minimal sample document: [template.qmd](template.qmd).
+This produces the following document (click for a full preview):
+
+![[template.qmd](template.qmd)](template_1.png)
+
 
 ## Usage
 
@@ -48,7 +63,7 @@ You can view a preview of the rendered template at https://github.com/isaiahespi
 
 ## Format Options
 
-The simple article format supports a number of options for customizing the format and appearance of the document. 
+The article format supports a number of options for customizing the format and appearance of the document. 
 Specify these under the `classoption` key.
 
  - `twoside` - use two-sided output.
@@ -82,3 +97,4 @@ kableExtra::kbl(head(mtcars), caption = "Cars", label = "tab-cars", booktabs = T
 ```
 
 The same code without using `table.envir` will generate a single column table.
+

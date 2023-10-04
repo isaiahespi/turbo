@@ -11,14 +11,6 @@ shorttitle: "A Curious Title"
 shortauthor: "F. Last"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 date-format: long
-abstract: |
-  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam lobortis 
-  facilisis sem. Nullam nec mi et neque pharetra sollicitudin. Praesent 
-  imperdiet mi nec ante. Donec ullamcorper, felis non sodales com- modo, 
-  lectus velit ultrices augue, a dignissim nibh lectus placerat pede. 
-  Vivamus nunc nunc, molestie ut, ultricies vel, semper in, velit. Ut 
-  porttitor. Praesent in sapien. Lorem ipsum dolor sit amet, consectetuer 
-  adipiscing elit. This is the abstract.
 format:
   turbo-pdf:
     keep-tex: true
@@ -31,6 +23,11 @@ format:
 reference-section-title: References
 bibliography: bibliography.bib
 ---
+
+# Abstract
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam lobortis facilisis sem. Nullam nec mi et neque pharetra sollicitudin. Praesent imperdiet mi nec ante. Donec ullamcorper, felis non sodales com- modo, lectus velit ultrices augue, a dignissim nibh lectus placerat pede. Vivamus nunc nunc, molestie ut, ultricies vel, semper in, velit. Ut porttitor. Praesent in sapien. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. This is the abstract.
+
 
 # Introduction {#sec-intro}
 
