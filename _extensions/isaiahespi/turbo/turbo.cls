@@ -98,9 +98,6 @@
 %   \appto{\footnotelayout}{\onehalfspacing}
 % \fi
 
-\RequirePackage{quoting}
-\quotingsetup{font=small,indentfirst=false,begintext={``},endtext={''},vskip=0.5\baselineskip,leftmargin=\parindent,rightmargin=0pt}
-
 %----------------------------------------------------------------------------------------
 %	TITLE, ABSTRACT AND PAGE HEADERS/FOOTERS
 %----------------------------------------------------------------------------------------
@@ -158,6 +155,7 @@
 \titleformat{\subsection}[block]{\large}{\thesubsection.}{1em}{} % Change the look of the section titles
 
 
+
 %----------------------------------------------------------------------------------------
 %	HYPERREF SETUP
 %----------------------------------------------------------------------------------------
@@ -174,91 +172,71 @@
             urlcolor=Maroon,
             bookmarksopen=false}
 
-\RequirePackage{silence}
-\WarningFilter*{hyperref}{Ignoring empty anchor}
-\WarningFilter*{hyperref}{Rerun to get}
-\WarningFilter*{microtype}{Unknown slot number of character}
-
-
 
 %----------------------------------------------------------------------------------------
 %	FONTS AND TYPESETTING
 %----------------------------------------------------------------------------------------
 
-%% Language and font encodings
-\RequirePackage[english]{babel}
-\RequirePackage{ifxetex,ifluatex,ifpdf}
-\ifxetex\else
-  \ifluatex\else
-    \RequirePackage[utf8]{inputenc}
-\fi\fi
-\RequirePackage[slantedGreek]{mathpazo}
-\RequirePackage[T1]{fontenc}
-\RequirePackage{newtxtext}%,newtxmath}%CTK fixes clash with pandoc amsmath
+\usepackage{iftex}
+
+\newif\if@unicode\@unicodefalse
+\ifluatex\@unicodetrue\fi
+\ifxetex\@unicodetrue\fi
+
+\if@unicode
+
+  %% For LuaLaTeX or XeLaTeX
+
+   %% When using unicode-math, this must come first
+   \if@phfthm
+      \usepackage{phfthm}
+   \fi
+   \usepackage{amsmath} % already standard with quarto
+   \usepackage{mathtools}
+
+   \usepackage{fontspec}
+   \usepackage[math-style=ISO,bold-style=ISO]{unicode-math}
+%
+%    \if@lucida
+%       \defaultfontfeatures{Scale=.92}
+%       \setmainfont{LucidaBrightOT}
+%       \setmathfont{LucidaBrightMathOT}
+%    \else
+%       \setmainfont{TeX Gyre Pagella}
+%       \setmathfont{TeX Gyre Pagella Math}
+%    \fi
+%
+\else
+
+  %% For pdfLaTeX:
+   \usepackage[slantedGreek]{mathpazo} % Use the Palatino font
+   \usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+
+   %% When using unicode-math, this must come first
+   \if@phfthm
+      \usepackage{phfthm}
+   \fi
+   \usepackage{amsmath}
+   \usepackage{mathtools}
+
+\fi
+
 \linespread{1.05} % Line spacing - Palatino needs more space between lines
-\RequirePackage{microtype} % Slightly tweak font spacing for aesthetics
-\RequirePackage{textcase}
-\RequirePackage{lettrine}% The lettrine is the first enlarged letter at the beginning of the text
-\RequirePackage{xpatch}
-\RequirePackage[framemethod=tikz]{mdframed}
-
-% \usepackage{iftex}
-% 
-% \newif\if@unicode\@unicodefalse
-% \ifluatex\@unicodetrue\fi
-% \ifxetex\@unicodetrue\fi
-% 
-% \if@unicode
-% 
-%   %% For LuaLaTeX or XeLaTeX
-% 
-%    %% When using unicode-math, this must come first
-%    \if@phfthm
-%       \usepackage{phfthm}
-%    \fi
-%    \usepackage{amsmath} % already standard with quarto
-%    \usepackage{mathtools}
-% 
-%    \usepackage{fontspec}
-%    \usepackage[math-style=ISO,bold-style=ISO]{unicode-math}
-% % 
-% %    \if@lucida
-% %       \defaultfontfeatures{Scale=.92}
-% %       \setmainfont{LucidaBrightOT}
-% %       \setmathfont{LucidaBrightMathOT}
-% %    \else
-% %       \setmainfont{TeX Gyre Pagella}
-% %       \setmathfont{TeX Gyre Pagella Math}
-% %    \fi
-% % 
-% \else
-% 
-%   %% For pdfLaTeX:
-%    \usepackage[slantedGreek]{mathpazo} % Use the Palatino font
-%    \usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
-% 
-%    %% When using unicode-math, this must come first
-%    \if@phfthm
-%       \usepackage{phfthm}
-%    \fi
-%    \usepackage{amsmath}
-%    \usepackage{mathtools}
-% 
-% \fi
-% 
-
-
-
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
 
 
 %----------------------------------------------------------------------------------------
 %	FURTHER PACKAGES
 %----------------------------------------------------------------------------------------
 
-% \usepackage[british]{babel} % Language hyphenation and typographical rules
-% \usepackage[en-GB]{datetime2}
-% %\DTMlangsetup[en-GB]{ord=raise,monthyearsep={,\space}}
-% \DTMlangsetup[en-GB]{ord=omit}
+% \RequirePackage{quoting}
+% \quotingsetup{font=small,indentfirst=false,begintext={``},endtext={''},vskip=0.5\baselineskip,leftmargin=\parindent,rightmargin=0pt}
+
+
+\usepackage[british]{babel} % Language hyphenation and typographical rules
+\usepackage[en-GB]{datetime2}
+%\DTMlangsetup[en-GB]{ord=raise,monthyearsep={,\space}}
+\DTMlangsetup[en-GB]{ord=omit}
 
 % \RequirePackage[style]{abstract}
 % \RequirePackage{environ}
