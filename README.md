@@ -72,6 +72,7 @@ Specify these under the `classoption` key.
  - `9pt`, `11pt`,... - font size for normal text; 9pt is useful for twocolumn output while other font sizes supported by the `extsizes` package will also work (default: 10pt).
  - `narrowmargins` - use narrow margins; possibly useful for twocolumn articles.
  - `normalnumbers` - use normal numbers for sectioning (default are roman numbers).
+ - `lucida` - use the commercially available (from the TUG) Lucida fonts; this requires Lua/XeLaTeX (default: Palatino for pdfLaTeX or TeX Gyre Pagella for Lua/XeLaTeX).
  - `phfthm` - provide theorem and proof environments from the phfthm package.
 
 For two-column output, I also recommend non-indented paragraphs (use the ìndent` parameter for the output format). An example:
