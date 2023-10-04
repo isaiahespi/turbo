@@ -47,76 +47,119 @@
 \newif\if@normalnumbers\@normalnumbersfalse
 \DeclareOption{normalnumbers}{\@normalnumberstrue}
 
-\newif\if@lucida\@lucidafalse
-\DeclareOption{lucida}{\@lucidatrue}
+% \newif\if@lucida\@lucidafalse
+% \DeclareOption{lucida}{\@lucidatrue}
 
-\newif\if@phfthm\@phfthmfalse
-\DeclareOption{phfthm}{\@phfthmtrue}
+% \newif\if@phfthm\@phfthmfalse
+% \DeclareOption{phfthm}{\@phfthmtrue}
 
-\DeclareOption*{\PassOptionsToClass{\CurrentOption}{extarticle}}
-\ProcessOptions\relax % Process class options
+% \DeclareOption*{\PassOptionsToClass{\CurrentOption}{extarticle}}
+% \ProcessOptions\relax % Process class options
+% 
+% \LoadClass[a4paper]{extarticle} % Load the primary class with set options
 
-\LoadClass[a4paper]{extarticle} % Load the primary class with set options
+\newif\if@biblatex
+\newif\if@twocol
+\newif\if@onehalfspace
+\newif\if@doublespace
+\DeclareOption{biblatex}{\@biblatextrue}
+\DeclareOption{bibtex}{\@biblatexfalse}
+\DeclareOption{twocolumn}{\@twocoltrue}
+\DeclareOption{singlespace}{\@onehalfspacefalse\@doublespacefalse}
+\DeclareOption{onehalfspace}{\@onehalfspacetrue\@doublespacefalse}
+\DeclareOption{doublespace}{\@onehalfspacefalse\@doublespacetrue}
+\ProcessOptions\relax
+\LoadClass[twoside,12pt]{article}
+
+\RequirePackage{silence}
+\WarningFilter*{hyperref}{Ignoring empty anchor}
+\WarningFilter*{hyperref}{Rerun to get}
+\WarningFilter*{microtype}{Unknown slot number of character}
 
 %----------------------------------------------------------------------------------------
 %	FONTS AND TYPESETTING
 %----------------------------------------------------------------------------------------
 
-\usepackage{iftex}
+%% Language and font encodings
+\RequirePackage[english]{babel}
+\RequirePackage{ifxetex,ifluatex,ifpdf}
+\ifxetex\else
+  \ifluatex\else
+    \RequirePackage[utf8]{inputenc}
+\fi\fi
+\RequirePackage[T1]{fontenc}
+\RequirePackage{newtxtext}%,newtxmath}%CTK fixes clash with pandoc amsmath
+\RequirePackage{microtype}
+\RequirePackage{textcase}
+\RequirePackage{lettrine}% The lettrine is the first enlarged letter at the beginning of the text
+\RequirePackage{xpatch}
+\RequirePackage[framemethod=tikz]{mdframed}
 
-\newif\if@unicode\@unicodefalse
-\ifluatex\@unicodetrue\fi
-\ifxetex\@unicodetrue\fi
-
-\if@unicode
-
-  %% For LuaLaTeX or XeLaTeX
-
-   %% When using unicode-math, this must come first
-   \if@phfthm
-      \usepackage{phfthm}
-   \fi
-   \usepackage{amsmath} % already standard with quarto
-   \usepackage{mathtools}
-
-   \usepackage{fontspec}
-   \usepackage[math-style=ISO,bold-style=ISO]{unicode-math}
+% \usepackage{iftex}
 % 
-%    \if@lucida
-%       \defaultfontfeatures{Scale=.92}
-%       \setmainfont{LucidaBrightOT}
-%       \setmathfont{LucidaBrightMathOT}
-%    \else
-%       \setmainfont{TeX Gyre Pagella}
-%       \setmathfont{TeX Gyre Pagella Math}
+% \newif\if@unicode\@unicodefalse
+% \ifluatex\@unicodetrue\fi
+% \ifxetex\@unicodetrue\fi
+% 
+% \if@unicode
+% 
+%   %% For LuaLaTeX or XeLaTeX
+% 
+%    %% When using unicode-math, this must come first
+%    \if@phfthm
+%       \usepackage{phfthm}
 %    \fi
+%    \usepackage{amsmath} % already standard with quarto
+%    \usepackage{mathtools}
 % 
-\else
+%    \usepackage{fontspec}
+%    \usepackage[math-style=ISO,bold-style=ISO]{unicode-math}
+% % 
+% %    \if@lucida
+% %       \defaultfontfeatures{Scale=.92}
+% %       \setmainfont{LucidaBrightOT}
+% %       \setmathfont{LucidaBrightMathOT}
+% %    \else
+% %       \setmainfont{TeX Gyre Pagella}
+% %       \setmathfont{TeX Gyre Pagella Math}
+% %    \fi
+% % 
+% \else
+% 
+%   %% For pdfLaTeX:
+%    \usepackage[slantedGreek]{mathpazo} % Use the Palatino font
+%    \usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+% 
+%    %% When using unicode-math, this must come first
+%    \if@phfthm
+%       \usepackage{phfthm}
+%    \fi
+%    \usepackage{amsmath}
+%    \usepackage{mathtools}
+% 
+% \fi
+% 
+% \linespread{1.05} % Line spacing - Palatino needs more space between lines
+% \usepackage{microtype} % Slightly tweak font spacing for aesthetics
 
-  %% For pdfLaTeX:
-   \usepackage[slantedGreek]{mathpazo} % Use the Palatino font
-   \usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
 
-   %% When using unicode-math, this must come first
-   \if@phfthm
-      \usepackage{phfthm}
-   \fi
-   \usepackage{amsmath}
-   \usepackage{mathtools}
-
-\fi
-
-\linespread{1.05} % Line spacing - Palatino needs more space between lines
-\usepackage{microtype} % Slightly tweak font spacing for aesthetics
 
 %----------------------------------------------------------------------------------------
 %	FURTHER PACKAGES
 %----------------------------------------------------------------------------------------
 
-\usepackage[british]{babel} % Language hyphenation and typographical rules
-\usepackage[en-GB]{datetime2}
-%\DTMlangsetup[en-GB]{ord=raise,monthyearsep={,\space}}
-\DTMlangsetup[en-GB]{ord=omit}
+% \usepackage[british]{babel} % Language hyphenation and typographical rules
+% \usepackage[en-GB]{datetime2}
+% %\DTMlangsetup[en-GB]{ord=raise,monthyearsep={,\space}}
+% \DTMlangsetup[en-GB]{ord=omit}
+
+\RequirePackage[style]{abstract}
+\RequirePackage{environ}
+\RequirePackage[explicit]{titlesec}
+\RequirePackage{tikz,pgffor}
+\RequirePackage{fancyhdr}
+\RequirePackage{setspace}
+\RequirePackage{lastpage}
 
 %----------------------------------------------------------------------------------------
 %	PAGE LAYOUT
@@ -131,10 +174,22 @@
 \usepackage[hang,small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
 \usepackage{booktabs} % Better looking tables
 
-\usepackage{lettrine} % The lettrine is the first enlarged letter at the beginning of the text
-
 \usepackage{enumitem} % Customized lists
 \setlist[itemize]{noitemsep} % Make itemize lists more compact
+
+\RequirePackage[marginal]{footmisc}
+\setlength{\footnotemargin}{0.25em}
+\def\blfootnote{\gdef\@thefnmark{}\@footnotetext}
+\renewcommand{\footnotelayout}{\small}
+\if@doublespace
+  \appto{\footnotelayout}{\doublespacing}
+\fi
+\if@onehalfspace
+  \appto{\footnotelayout}{\onehalfspacing}
+\fi
+
+\RequirePackage{quoting}
+\quotingsetup{font=small,indentfirst=false,begintext={``},endtext={''},vskip=0.5\baselineskip,leftmargin=\parindent,rightmargin=0pt}
 
 %----------------------------------------------------------------------------------------
 %	TITLE, ABSTRACT AND PAGE HEADERS/FOOTERS
