@@ -64,49 +64,59 @@
 %	FONTS AND TYPESETTING
 %----------------------------------------------------------------------------------------
 
-\usepackage{iftex}
-
-\newif\if@unicode\@unicodefalse
-\ifluatex\@unicodetrue\fi
-\ifxetex\@unicodetrue\fi
-
-\if@unicode
-
-  %% For LuaLaTeX or XeLaTeX
-
-   %% When using unicode-math, this must come first
-   \if@phfthm
-      \usepackage{phfthm}
-   \fi
-   \usepackage{amsmath} % already standard with quarto
-   \usepackage{mathtools}
-
-   \usepackage{fontspec}
-   \usepackage[math-style=ISO,bold-style=ISO]{unicode-math}
-
-   \if@lucida
-      \defaultfontfeatures{Scale=.92}
-      \setmainfont{LucidaBrightOT}
-      \setmathfont{LucidaBrightMathOT}
-   \else
-      \setmainfont{TeX Gyre Pagella}
-      \setmathfont{TeX Gyre Pagella Math}
-   \fi
-
-\else
-
-  %% For pdfLaTeX:
-   \usepackage[slantedGreek]{mathpazo} % Use the Palatino font
-   \usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
-
-   %% When using unicode-math, this must come first
-   \if@phfthm
-      \usepackage{phfthm}
-   \fi
-   \usepackage{amsmath}
-   \usepackage{mathtools}
-
-\fi
+%% Language and font encodings
+\RequirePackage[english]{babel}
+\RequirePackage{ifxetex,ifluatex,ifpdf}
+\ifxetex\else
+  \ifluatex\else
+    \RequirePackage[utf8]{inputenc}
+\fi\fi
+\RequirePackage[T1]{fontenc}
+\RequirePackage{newtxtext}%,newtxmath}%CTK fixes clash with pandoc amsmath
+% 
+% \usepackage{iftex}
+% 
+% \newif\if@unicode\@unicodefalse
+% \ifluatex\@unicodetrue\fi
+% \ifxetex\@unicodetrue\fi
+% 
+% \if@unicode
+% 
+%   %% For LuaLaTeX or XeLaTeX
+% 
+%    %% When using unicode-math, this must come first
+%    \if@phfthm
+%       \usepackage{phfthm}
+%    \fi
+%    \usepackage{amsmath} % already standard with quarto
+%    \usepackage{mathtools}
+% 
+%    \usepackage{fontspec}
+%    \usepackage[math-style=ISO,bold-style=ISO]{unicode-math}
+% 
+%    \if@lucida
+%       \defaultfontfeatures{Scale=.92}
+%       \setmainfont{LucidaBrightOT}
+%       \setmathfont{LucidaBrightMathOT}
+%    \else
+%       \setmainfont{TeX Gyre Pagella}
+%       \setmathfont{TeX Gyre Pagella Math}
+%    \fi
+% 
+% \else
+% 
+%   %% For pdfLaTeX:
+%    \usepackage[slantedGreek]{mathpazo} % Use the Palatino font
+%    \usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+% 
+%    %% When using unicode-math, this must come first
+%    \if@phfthm
+%       \usepackage{phfthm}
+%    \fi
+%    \usepackage{amsmath}
+%    \usepackage{mathtools}
+% 
+% \fi
 
 \linespread{1.05} % Line spacing - Palatino needs more space between lines
 \usepackage{microtype} % Slightly tweak font spacing for aesthetics
