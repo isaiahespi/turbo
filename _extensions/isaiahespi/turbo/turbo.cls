@@ -210,4 +210,16 @@
 
 %----------------------------------------------------------------------------------------
 
+
+\if@biblatex
+  \RequirePackage{csquotes}
+  % v1.3 2023-06-30: new way of loading biblatex-chicago
+  \RequirePackage[natbib,authordate,sorting=nyt]{biblatex-chicago}
+\else
+  \RequirePackage{natbib}
+  \bibliographystyle{chicago-apsr}
+  \setcitestyle{aysep={}}
+\fi
+\renewcommand{\bibfont}{\small}
+
 \endinput

@@ -34,4 +34,4 @@ contributes:
         - "partials/_authors.tex"
       format-resources:
         - turbo.cls
-        - turbo.bst
+        - chicago_apsr.bst
