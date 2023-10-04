@@ -53,9 +53,7 @@
 % \newif\if@phfthm\@phfthmfalse
 % \DeclareOption{phfthm}{\@phfthmtrue}
 
-% \DeclareOption*{\PassOptionsToClass{\CurrentOption}{extarticle}}
-% \ProcessOptions\relax % Process class options
-% 
+
 
 
 \newif\if@biblatex
@@ -71,6 +69,9 @@
 \ProcessOptions\relax
 %\LoadClass[twoside,12pt]{article}
 \LoadClass[a4paper]{extarticle} % Load the primary class with set options
+
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{extarticle}}
+\ProcessOptions\relax % Process class options
 
 
 %----------------------------------------------------------------------------------------
@@ -107,9 +108,11 @@
   \ifluatex\else
     \RequirePackage[utf8]{inputenc}
 \fi\fi
+\RequirePackage[slantedGreek]{mathpazo}
 \RequirePackage[T1]{fontenc}
 \RequirePackage{newtxtext}%,newtxmath}%CTK fixes clash with pandoc amsmath
-\RequirePackage{microtype}
+\linespread{1.05} % Line spacing - Palatino needs more space between lines
+\RequirePackage{microtype} % Slightly tweak font spacing for aesthetics
 \RequirePackage{textcase}
 \RequirePackage{lettrine}% The lettrine is the first enlarged letter at the beginning of the text
 \RequirePackage{xpatch}
@@ -159,8 +162,8 @@
 % 
 % \fi
 % 
-% \linespread{1.05} % Line spacing - Palatino needs more space between lines
-% \usepackage{microtype} % Slightly tweak font spacing for aesthetics
+
+
 
 
 
@@ -173,13 +176,13 @@
 % %\DTMlangsetup[en-GB]{ord=raise,monthyearsep={,\space}}
 % \DTMlangsetup[en-GB]{ord=omit}
 
-\RequirePackage[style]{abstract}
-\RequirePackage{environ}
-\RequirePackage[explicit]{titlesec}
-\RequirePackage{tikz,pgffor}
-\RequirePackage{fancyhdr}
-\RequirePackage{setspace}
-\RequirePackage{lastpage}
+% \RequirePackage[style]{abstract}
+% \RequirePackage{environ}
+% \RequirePackage[explicit]{titlesec}
+% \RequirePackage{tikz,pgffor}
+% \RequirePackage{fancyhdr}
+% \RequirePackage{setspace}
+% \RequirePackage{lastpage}
 
 %----------------------------------------------------------------------------------------
 %	PAGE LAYOUT
@@ -197,16 +200,17 @@
 \usepackage{enumitem} % Customized lists
 \setlist[itemize]{noitemsep} % Make itemize lists more compact
 
-\RequirePackage[marginal]{footmisc}
-\setlength{\footnotemargin}{0.25em}
-\def\blfootnote{\gdef\@thefnmark{}\@footnotetext}
-\renewcommand{\footnotelayout}{\small}
-\if@doublespace
-  \appto{\footnotelayout}{\doublespacing}
-\fi
-\if@onehalfspace
-  \appto{\footnotelayout}{\onehalfspacing}
-\fi
+
+% \RequirePackage[marginal]{footmisc}
+% \setlength{\footnotemargin}{0.25em}
+% \def\blfootnote{\gdef\@thefnmark{}\@footnotetext}
+% \renewcommand{\footnotelayout}{\small}
+% \if@doublespace
+%   \appto{\footnotelayout}{\doublespacing}
+% \fi
+% \if@onehalfspace
+%   \appto{\footnotelayout}{\onehalfspacing}
+% \fi
 
 \RequirePackage{quoting}
 \quotingsetup{font=small,indentfirst=false,begintext={``},endtext={''},vskip=0.5\baselineskip,leftmargin=\parindent,rightmargin=0pt}
