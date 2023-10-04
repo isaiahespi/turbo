@@ -129,7 +129,7 @@
 % \quotingsetup{font=small,indentfirst=false,begintext={``},endtext={''},vskip=0.5\baselineskip,leftmargin=\parindent,rightmargin=0pt}
 
 
-\usepackage[british]{babel} % Language hyphenation and typographical rules
+%\usepackage[british]{babel} % Language hyphenation and typographical rules
 \usepackage[en-GB]{datetime2}
 %\DTMlangsetup[en-GB]{ord=raise,monthyearsep={,\space}}
 \DTMlangsetup[en-GB]{ord=omit}
