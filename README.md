@@ -40,6 +40,7 @@ quarto install extension isaiahespi/turbo
 Here is the source code for a minimal sample document: [template.qmd](template.qmd).
 This produces the following document (click for a full preview):
 
+<!-- pdftools::pdf_convert('template.pdf',pages = 1) -->
 ![[template.qmd](template.qmd)](template_1.png)
 
 
