@@ -1,0 +1,384 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+\documentclass[
+  9pt,
+  twocolumn,
+  twoside]{turbo}% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{flushend.sty}{\usepackage{flushend}}{}
+
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\usepackage{orcidlink}
+\definecolor{mypink}{RGB}{219, 48, 122}
+\makeatletter
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\makeatother
+\makeatletter
+\@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\makeatother
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+
+\hypersetup{
+  pdftitle={Turbo Article Template},
+  pdfauthor={First Last},
+  colorlinks=true,
+  linkcolor={Blue},
+  filecolor={Blue},
+  citecolor={Blue},
+  urlcolor={Maroon},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Turbo Article Template}
+\author{
+\textsc{First Last}
+\\[1ex]
+\normalsize University of College
+\\
+\normalsize\href{mailto:youremail@university.edu}{youremail@university.edu}
+}
+
+\date{October 4, 2023}
+
+\fancyhead[C]{F. Last $\bullet$ A Curious Title}
+
+\begin{document}
+
+\renewcommand{\maketitlehookd}{%
+\begin{abstract}
+\noindent{}Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+Etiam lobortis facilisis sem. Nullam nec mi et neque pharetra
+sollicitudin. Praesent imperdiet mi nec ante. Donec ullamcorper, felis
+non sodales com- modo, lectus velit ultrices augue, a dignissim nibh
+lectus placerat pede. Vivamus nunc nunc, molestie ut, ultricies vel,
+semper in, velit. Ut porttitor. Praesent in sapien. Lorem ipsum dolor
+sit amet, consectetuer adipiscing elit. This is the abstract.
+\end{abstract}
+}
+
+\maketitle
+
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[boxrule=0pt, frame hidden, interior hidden, borderline west={3pt}{0pt}{shadecolor}, enhanced, breakable, sharp corners]}{\end{tcolorbox}}\fi
+
+
+
+
+\hypertarget{sec-intro}{%
+\section{Introduction}\label{sec-intro}}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum
+dolor sit amet, consectetuer adipiscing elit. Etiam lobortis facilisis
+sem. Nullam nec mi et neque pharetra sollicitudin. Praesent imperdiet mi
+nec ante. Donec ullamcorper, felis non sodales commodo, lectus velit
+ultrices augue, a dignissim nibh lectus placerat pede. Vivamus nunc
+nunc, molestie ut, ultricies vel, semper in, velit. Ut porttitor.
+Praesent in sapien. Lorem ipsum dolor sit amet, consectetuer adipiscing
+elit. Duis fringilla tristique neque. Sed interdum libero ut metus.
+Pellentesque placerat. Nam rutrum augue a leo. Morbi sed elit sit amet
+ante lobortis sollicitudin. Praesent blandit blandit mauris. Praesent
+lectus tellus, aliquet aliquam, luctus a, egestas a, turpis. Mauris
+lacinia lorem sit amet ipsum. Nunc quis urna dictum turpis accumsan
+semper.
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam lobortis
+facilisis sem. Nullam nec mi et neque pharetra sollicitudin. Praesent
+imperdiet mi nec ante. Donec ullamcorper, felis non sodales commodo,
+lectus velit ultrices augue, a dignissim nibh lectus placerat pede.
+Vivamus nunc nunc, mo- lestie ut, ultricies vel, semper in, velit. Ut
+porttitor. Praesent in sapien. Lorem ipsum dolor sit amet, consectetuer
+adipiscing elit. Duis fringilla tristique neque. Sed interdum libero ut
+metus. Pellentesque placerat. Nam rutrum augue a leo. Morbi sed elit sit
+amet ante lobortis sollicitudin. Praesent blandit blandit mauris.
+Praesent lectus tellus, aliquet aliquam, luctus a, egestas a, turpis.
+Mauris lacinia lorem sit amet ipsum. Nunc quis urna dictum turpis
+accumsan semper.
+
+\hypertarget{sec-methods}{%
+\section{Methods}\label{sec-methods}}
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam lobortis
+facilisis sem. Nullam nec mi et neque pharetra sollicitudin. Praesent
+imperdiet mi nec ante. Donec ullamcorper, felis non sodales commodo,
+lectus velit ultrices augue, a dignissim nibh lectus placerat pede.
+Vivamus nunc nunc, mo- lestie ut, ultricies vel, semper in, velit. Ut
+porttitor. Praesent in sapien. Lorem ipsum dolor sit amet, consectetuer
+adipiscing elit. Duis fringilla tristique neque. Sed interdum libero ut
+metus. Pellentesque placerat. Nam rutrum augue a leo. Morbi sed elit sit
+amet ante lobortis sollicitudin. Praesent blandit blandit mauris.
+Praesent lectus tellus, aliquet aliquam, luctus a, egestas a, turpis.
+Mauris lacinia lorem sit amet ipsum. Nunc quis urna dictum turpis
+accumsan semper.
+
+Maecenas sed ultricies felis. Sed imperdiet dictum arcu a egestas.
+
+\begin{itemize}
+\tightlist
+\item
+  Donec dolor arcu, rutrum id molestie in, viverra sed diam
+\item
+  Curabitur feugiat
+\item
+  Turpis sed auctor facilisis
+\item
+  Arcu eros accumsan lorem, at posuere mi diam sit amet tortor
+\item
+  Fusce fermentum, mi sit amet euismod rutrum
+\item
+  Sem lorem molestie diam, iaculis aliquet sapien tortor non nisi
+\item
+  Pellentesque bibendum pretium aliquet
+\end{itemize}
+
+\begin{table*}
+
+\caption{Cars}
+\centering
+\begin{tabular}[t]{lrrrrrrrrrrr}
+\toprule
+  & mpg & cyl & disp & hp & drat & wt & qsec & vs & am & gear & carb\\
+\midrule
+Mazda RX4 & 21.0 & 6 & 160 & 110 & 3.90 & 2.620 & 16.46 & 0 & 1 & 4 & 4\\
+Mazda RX4 Wag & 21.0 & 6 & 160 & 110 & 3.90 & 2.875 & 17.02 & 0 & 1 & 4 & 4\\
+Datsun 710 & 22.8 & 4 & 108 & 93 & 3.85 & 2.320 & 18.61 & 1 & 1 & 4 & 1\\
+Hornet 4 Drive & 21.4 & 6 & 258 & 110 & 3.08 & 3.215 & 19.44 & 1 & 0 & 3 & 1\\
+Hornet Sportabout & 18.7 & 8 & 360 & 175 & 3.15 & 3.440 & 17.02 & 0 & 0 & 3 & 2\\
+\addlinespace
+Valiant & 18.1 & 6 & 225 & 105 & 2.76 & 3.460 & 20.22 & 1 & 0 & 3 & 1\\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam lobortis
+facilisis sem. Nullam nec mi et neque pharetra sollicitudin. Praesent
+imperdiet mi nec ante. Donec ullamcorper, felis non sodales com- modo,
+lectus velit ultrices augue, a dignissim nibh lectus placerat pede.
+Vivamus nunc nunc, molestie ut, ultricies vel, semper in, velit. Ut
+porttitor. Praesent in sapien. Lorem ipsum dolor sit amet, consectetuer
+adipiscing elit. Duis fringilla tristique neque. Sed interdum libero ut
+metus. Pellentesque placerat. Nam rutrum augue a leo. Morbi sed elit sit
+amet ante lobortis sollicitudin. Praesent blandit blandit mauris.
+Praesent lectus tellus, aliquet aliquam, luctus a, egestas a, turpis.
+Mauris lacinia lorem sit amet ipsum. Nunc quis urna dictum turpis
+accumsan semper.
+
+\hypertarget{sec-results}{%
+\section{Results}\label{sec-results}}
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam lobortis
+facilisis sem. Nullam nec mi et neque pharetra sollicitudin. Praesent
+imperdiet mi nec ante. Donec ullamcorper, felis non sodales com- modo,
+lectus velit ultrices augue, a dignissim nibh lectus placerat pede.
+Vivamus nunc nunc, molestie ut, ultricies vel, semper in, velit. Ut
+porttitor. Praesent in sapien. Lorem ipsum dolor sit amet, consectetuer
+adipiscing elit. Duis fringilla tristique neque. Sed interdum libero ut
+metus. Pellentesque placerat. Nam rutrum augue a leo. Morbi sed elit sit
+amet ante lobortis sollicitudin. Praesent blandit blandit mauris.
+Praesent lectus tellus, aliquet aliquam, luctus a, egestas a, turpis.
+Mauris lacinia lorem sit amet ipsum. Nunc quis urna dictum turpis
+accumsan semper.
+
+\begin{equation}\protect\hypertarget{eq-einstein}{}{E = m c^2}\label{eq-einstein}\end{equation}
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam lobortis
+facilisis sem. Nullam nec mi et neque pharetra sollicitudin. Praesent
+imperdiet mi nec ante. Donec ullamcorper, felis non sodales commodo,
+lectus velit ultrices augue, a dignissim nibh lectus placerat pede.
+Vivamus nunc nunc, mo- lestie ut, ultricies vel, semper in, velit. Ut
+porttitor. Praesent in sapien. Lorem ipsum dolor sit amet, consectetuer
+adipiscing elit. Duis fringilla tristique neque. Sed interdum libero ut
+metus. Pellentesque placerat. Nam rutrum augue a leo. Morbi sed elit sit
+amet ante lobortis sollicitudin. Praesent blandit blandit mauris.
+Praesent lectus tellus, aliquet aliquam, luctus a, egestas a, turpis.
+Mauris lacinia lorem sit amet ipsum. Nunc quis urna dictum turpis
+accumsan semper.
+
+\hypertarget{sec-discussion}{%
+\section{Discussion}\label{sec-discussion}}
+
+\hypertarget{first-subsection}{%
+\subsection{First Subsection}\label{first-subsection}}
+
+Lorem ipsum dolor sit amet (Cameron and Trivedi 2013), consectetuer
+adipiscing elit. Etiam lobortis facilisis sem. Nullam nec mi et neque
+pharetra sollicitudin. Praesent imperdiet mi nec ante. Donec
+ullamcorper, felis non sodales commodo, lectus velit ultrices augue, a
+dignissim nibh lectus placerat pede. Vivamus nunc nunc, molestie ut,
+ultricies vel, semper in, velit. Ut porttitor. Praesent in sapien. Lorem
+ipsum dolor sit amet, consectetuer adipiscing elit. Duis fringilla
+tristique neque. Sed interdum libero ut metus. Pellentesque placerat.
+Nam rutrum augue a leo. Morbi sed elit sit amet ante lobortis
+sollicitudin. Praesent blandit blandit mauris. Praesent lectus tellus,
+aliquet aliquam, luctus a, egestas a, turpis. Mauris lacinia lorem sit
+amet ipsum. Nunc quis urna dictum turpis accumsan semper.
+
+\hypertarget{second-subsection}{%
+\subsection{Second Subsection}\label{second-subsection}}
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam lobortis
+facilisis sem. Nullam nec mi et neque pharetra sollicitudin. Praesent
+imperdiet mi nec ante. Donec ullamcorper, felis non sodales com- modo,
+lectus velit ultrices augue, a dignissim nibh lectus placerat pede.
+Vivamus nunc nunc, molestie ut, ultricies vel, semper in, velit. Ut
+porttitor. Praesent in sapien. Lorem ipsum dolor sit amet, consectetuer
+adipiscing elit. Duis fringilla tristique neque. Sed interdum libero ut
+metus. Pellentesque placerat. Nam rutrum augue a leo. Morbi sed elit sit
+amet ante lobortis sollicitudin. Praesent blandit blandit mauris.
+Praesent lectus tellus, aliquet aliquam, luctus a, egestas a, turpis.
+Mauris lacinia lorem sit amet ipsum. Nunc quis urna dictum turpis
+accumsan semper.
+
+\hypertarget{references}{%
+\section*{References}\label{references}}
+\addcontentsline{toc}{section}{References}
+
+\hypertarget{refs}{}
+\begin{CSLReferences}{1}{0}
+\leavevmode\vadjust pre{\hypertarget{ref-CameronTrivedi2013}{}}%
+Cameron, A. Colin, and Pravin K. Trivedi. 2013. \emph{Regression
+Analysis of Count Data}. 2nd ed. Cambridge: Cambridge University Press.
+
+\end{CSLReferences}
+
+
+
+\end{document}
