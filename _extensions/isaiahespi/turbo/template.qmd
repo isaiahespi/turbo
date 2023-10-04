@@ -19,7 +19,6 @@ format:
     indent: false
     classoption: 
      - 9pt
-     - lucida
      - twocolumn
      - twoside
 bibliography: bibliography.bib

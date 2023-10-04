@@ -22,7 +22,7 @@ contributes:
       filecolor: Blue
       fig-width: 6.5
       fig-height: 4.5
-      #cite-method: natbib
+      cite-method: biblatex
       biblio-style: turbo
       header-includes: |
         \usepackage{orcidlink}
