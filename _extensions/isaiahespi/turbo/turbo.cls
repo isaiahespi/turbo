@@ -56,7 +56,7 @@
 % \DeclareOption*{\PassOptionsToClass{\CurrentOption}{extarticle}}
 % \ProcessOptions\relax % Process class options
 % 
-% \LoadClass[a4paper]{extarticle} % Load the primary class with set options
+
 
 \newif\if@biblatex
 \newif\if@twocol
@@ -69,7 +69,9 @@
 \DeclareOption{onehalfspace}{\@onehalfspacetrue\@doublespacefalse}
 \DeclareOption{doublespace}{\@onehalfspacefalse\@doublespacetrue}
 \ProcessOptions\relax
-\LoadClass[twoside,12pt]{article}
+%\LoadClass[twoside,12pt]{article}
+\LoadClass[a4paper]{extarticle} % Load the primary class with set options
+
 
 \RequirePackage{silence}
 \WarningFilter*{hyperref}{Ignoring empty anchor}
