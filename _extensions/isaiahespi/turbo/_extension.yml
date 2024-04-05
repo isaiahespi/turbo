@@ -12,7 +12,7 @@ contributes:
         opts_chunk:
           echo: false
     pdf:
-      pdf-engine: lualatex
+      pdf-engine: xelatex
       documentclass: turbo
       number-sections: true
       colorlinks: true
