@@ -16,7 +16,7 @@ contributes:
       documentclass: turbo
       number-sections: true
       mainfont: LucidaBright
-      fontsize: 11pt
+      fontsize: 12pt
       colorlinks: true
       urlcolor: Maroon
       linkcolor: Blue

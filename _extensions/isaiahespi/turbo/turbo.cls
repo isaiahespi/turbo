@@ -56,7 +56,6 @@
 \newif\if@blind
 \DeclareOption{blind}{\@blindtrue}
 \DeclareOption{nonblind}{\@blindfalse}
-\ExecuteOptions{nonblind}
 
 \newif\if@twocolumn
 \DeclareOption{twocolumn}{\@twocolumntrue}
