@@ -15,13 +15,12 @@ contributes:
       pdf-engine: lualatex
       documentclass: turbo
       number-sections: true
-      mainfont: LucidaBright
-      fontsize: 12pt
       colorlinks: true
       urlcolor: Maroon
-      linkcolor: Blue
-      citecolor: Blue
-      filecolor: Blue
+      linkcolor: DarkSlateBlue
+      citecolor: DarkSlateBlue
+      link-citations: true
+      filecolor: DarkSlateBlue
       fig-width: 6.5
       fig-height: 4.5
       # biblio-style: turbo

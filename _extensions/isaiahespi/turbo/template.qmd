@@ -16,7 +16,10 @@ abstract: |
 format:
   turbo-pdf:
     keep-tex: true
-    indent: false
+    indent: true
+    linestretch: 1.50
+    fontsize: 12pt
+    mainfont: PalatinoLinotype-Roman
 bibliography: references.bib
 ---
 
