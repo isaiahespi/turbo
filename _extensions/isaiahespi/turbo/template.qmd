@@ -18,8 +18,8 @@ format:
     keep-tex: true
     indent: false
     classoption: 
-     - 9pt
-     - twocolumn
+     - 12pt
+     - onecolumn
      - twoside
 bibliography: bibliography.bib
 ---

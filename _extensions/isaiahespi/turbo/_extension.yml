@@ -12,7 +12,7 @@ contributes:
         opts_chunk:
           echo: false
     pdf:
-      pdf-engine: xelatex
+      pdf-engine: lualatex
       documentclass: turbo
       number-sections: true
       colorlinks: true
@@ -34,3 +34,5 @@ contributes:
       format-resources:
         - turbo.cls
         - chicago_apsr.bst
+        - apsr.bst
+        - apsr_submission.cls
