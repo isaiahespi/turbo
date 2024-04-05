@@ -24,7 +24,7 @@ contributes:
       filecolor: Blue
       fig-width: 6.5
       fig-height: 4.5
-      biblio-style: turbo
+      # biblio-style: turbo
       template: turbo.tex
       template-partials:
         - "partials/before-body.tex"
@@ -34,4 +34,3 @@ contributes:
         - turbo.cls
         - chicago_apsr.bst
         - apsr.bst
-        - apsr_submission.cls

@@ -53,9 +53,6 @@
 \newif\if@phfthm\@phfthmfalse
 \DeclareOption{phfthm}{\@phfthmtrue}
 
-\newif\if@twocolumn
-\DeclareOption{twocolumn}{\@twocolumntrue}
-
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{extarticle}}
 \ProcessOptions\relax % Process class options
 

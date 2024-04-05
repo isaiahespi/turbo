@@ -17,8 +17,6 @@ format:
   turbo-pdf:
     keep-tex: true
     indent: false
-    blind: false
-    twocolumn: false
 bibliography: references.bib
 ---
 
