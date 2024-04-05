@@ -17,11 +17,9 @@ format:
   turbo-pdf:
     keep-tex: true
     indent: false
-    classoption: 
-     - 12pt
-     - onecolumn
-     - twoside
-bibliography: bibliography.bib
+    blind: false
+    twocolumn: false
+bibliography: references.bib
 ---
 
 # Introduction {#sec-intro}

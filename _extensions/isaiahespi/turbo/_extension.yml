@@ -12,9 +12,11 @@ contributes:
         opts_chunk:
           echo: false
     pdf:
-      pdf-engine: xelatex
+      pdf-engine: lualatex
       documentclass: turbo
       number-sections: true
+      mainfont: LucidaBright
+      fontsize: 11pt
       colorlinks: true
       urlcolor: Maroon
       linkcolor: Blue
@@ -23,9 +25,6 @@ contributes:
       fig-width: 6.5
       fig-height: 4.5
       biblio-style: turbo
-      header-includes: |
-        \usepackage{orcidlink}
-        \definecolor{mypink}{RGB}{219, 48, 122}
       template: turbo.tex
       template-partials:
         - "partials/before-body.tex"

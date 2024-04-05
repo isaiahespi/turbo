@@ -24,18 +24,20 @@ $endif$
 
 $if(shorttitle)$
 $if(shortauthor)$
-\fancyhead[L,R]{${shortauthor} ${shorttitle}}
+\fancyhead[L]{${shortauthor} $}
+\fancyhead[R]{${shorttitle}$}
 $else$ $-- no shortauthor
 $for(by-author/first)$
-\fancyhead[L,R]{${it.name.literal} ${shorttitle}}
+\fancyhead[L]{${it.name.literal} $}
 $endfor$
 $endif$
 $else$ $-- no shorttitle
 $if(shortauthor)$
-\fancyhead[L,R]{${shortauthor} ${title}}
+\fancyhead[L]{${shortauthor} $}
 $else$ $-- no shortauthor
 $for(by-author/first)$
-\fancyhead[L,R]{${it.name.literal} ${title}}
+\fancyhead[L]{${it.name.literal}$}
 $endfor$
 $endif$
 $endif$
+
