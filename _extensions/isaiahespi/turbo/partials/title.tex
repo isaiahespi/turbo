@@ -28,15 +28,15 @@ $if(shortauthor)$
 \fancyhead[R]{$shorttitle$}
 $else$ $-- no shortauthor
 $for(by-author/first)$
-\fancyhead[L]{${it.name.literal} $}
+\fancyhead[L]{$it.name.literal$}
 $endfor$
 $endif$
 $else$ $-- no shorttitle
 $if(shortauthor)$
-\fancyhead[L]{${shortauthor} $}
+\fancyhead[L]{$shortauthor$}
 $else$ $-- no shortauthor
 $for(by-author/first)$
-\fancyhead[L]{${it.name.literal}$}
+\fancyhead[L]{$it.name.literal$}
 $endfor$
 $endif$
 $endif$
