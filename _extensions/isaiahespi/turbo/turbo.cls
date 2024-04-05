@@ -53,10 +53,6 @@
 \newif\if@phfthm\@phfthmfalse
 \DeclareOption{phfthm}{\@phfthmtrue}
 
-\newif\if@blind
-\DeclareOption{blind}{\@blindtrue}
-\DeclareOption{nonblind}{\@blindfalse}
-
 \newif\if@twocolumn
 \DeclareOption{twocolumn}{\@twocolumntrue}
 
@@ -80,7 +76,7 @@
 \RequirePackage[T1]{fontenc}
 \RequirePackage{newtxtext}%,newtxmath}%CTK fixes clash with pandoc amsmath
 \usepackage{microtype} % Slightly tweak font spacing for aesthetics
-% \linespread{1.05} % Line spacing - Palatino needs more space between lines
+\linespread{1.05} % Line spacing - Palatino needs more space between lines
 
 
 
@@ -128,23 +124,6 @@
 %    \usepackage{mathtools}
 % 
 % \fi
-
-%----------------------------------------------------------------------------------------
-%	Front Matters
-%----------------------------------------------------------------------------------------
-
-\def\@authorlist{}
-\def\@authorinfo{}
-\def\@authorlistblind{}
-\def\@authorinfoblind{}
-\def\@shortauthor{}
-\def\@shorttitle{}
-
-
-\newcommand{\authorinfo}[1]{\appto{\@authorinfo}{#1}}
-\let\thanks\authorinfo
-\newcommand{\shortauthor}[1]{\def\@shortauthor{#1}}
-\newcommand{\shorttitle}[1]{\def\@shorttitle{#1}}
 
 
 %----------------------------------------------------------------------------------------
@@ -252,25 +231,6 @@
             urlcolor=Maroon,
             bookmarksopen=false}
 
-
-%----------------------------------------------------------------------------------------
-%	Anonymize authors
-%----------------------------------------------------------------------------------------
-
-\if@blind
-  \newcommand{\@anonymizeauthors}{
-    \def\@authorlistblind{}
-    \def\@authorinfoblind{}
-    \patchcmd{\author}{\@authorlist}{\@authorlistblind}{}{}
-    \patchcmd{\authorinfo}{\@authorinfo}{\@authorinfoblind}{}{}
-    \author{Anonymised Author(s)}{Anonymised Institution(s)}{Anonymised submission.\par\medskip\textbf{This is a  manuscript submitted for review.}}
-    \gdef\@shortauthor{Anonymised Author(s)}
-    \let\@authorlist\@authorlistblind
-    \let\@authorinfo\@authorinfoblind
-}
-\else
-  \let\@anonymizeauthors\relax
-\fi
 
 
 
