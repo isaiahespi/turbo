@@ -14,10 +14,9 @@ date: last-modified
 date-format: long
 format:
   turbo-pdf:
-    mainfont: Palatino Linotype
-    classoption: 
-      - twocolumn
-      - twoside
+    mainfont: TeX Gyre Pagella
+    biblatex-chicago: true
+    linestretch: 1.50
 bibliography: references.bib
 ---
 

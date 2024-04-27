@@ -6,44 +6,25 @@ $-- %%%% TODO %%%%%
 $-- Customize is needed, like below for printing the authors. Otherwise remove this partials to use Quarto default one.
 $-- %%%%%%%%%%%%%%%%
 
-% \usepackage{authblk}
-% \renewcommand*{\Authsep}{, }
-% \renewcommand*{\Authand}{ and }
-% \renewcommand*{\Authands}{, and }
-% \renewcommand*{\Affilfont}{\normalsize}
-% \renewcommand*{\Authfont}{\normalsize}
+% -----------------------
+% END-OF-PREAMBLE STUFF
+% -----------------------
 
-
-$if(title)$
-\title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
-$endif$
-$if(subtitle)$
+% For patching commands like \subtitle
 \usepackage{etoolbox}
-\makeatletter
-\providecommand{\subtitle}[1]{% add subtitle to \maketitle
-  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
-}
-\makeatother
-\subtitle{$subtitle$}
-$endif$
 
-\author{${ by-author:_authors.tex()[\and ] }}
-
-% $for(by-author)$
-% \author[$for(it.affiliations)$$it.number$$sep$,$endfor$]{$by-author.name.literal$}
-% $endfor$
-% 
-% $for(by-affiliation)$
-% \affil[$it.number$]{$it.name$}
-% $endfor$
-
-
-\date{$date$}
 
 
 % -----------------
 % Running headers
 % -----------------
+
+\usepackage{fancyhdr}
+\pagestyle{fancy} % All pages have headers and footers
+\fancyhead{} % Blank out the default header
+\fancyfoot{} % Blank out the default footer
+\fancyfoot[RO,LE]{\thepage} % Custom footer text
+
 
 
 $if(shorttitle)$
@@ -64,6 +45,84 @@ $for(by-author/first)$
 $endfor$
 $endif$
 $endif$
+
+
+
+$if(biblatex)$
+% ----------
+% BibLaTeX
+% ----------
+$if(biblatex-chicago)$
+\usepackage[$if(biblio-style)$$biblio-style$,$endif$$for(biblatexoptions)$$biblatexoptions$$sep$,$endfor$]{biblatex-chicago}
+$else$
+\usepackage[$if(biblio-style)$style=$biblio-style$,$endif$$for(biblatexoptions)$$biblatexoptions$$sep$,$endfor$]{biblatex}
+$endif$
+
+% \setlength\bibitemsep{0pt}  % No space between bib entries
+\setlength\bibhang{\parindent}  % Match document indentation
+
+% Fix biblatex's odd preference for using In: by default.
+\renewbibmacro{in:}{%
+  \ifentrytype{article}{}{%
+  \printtext{\bibstring{}\intitlepunct}}}
+
+\addbibresource{$bibliography$}
+
+% Start bibliography on new page
+\pretocmd{\printbibliography}{\clearpage}{}{}
+$endif$
+
+
+% ----------------------
+% Title block elements
+% ----------------------
+
+\usepackage{authblk}
+\renewcommand*{\Authsep}{, }
+\renewcommand*{\Authand}{ and }
+\renewcommand*{\Authands}{, and }
+\renewcommand*{\Affilfont}{\normalsize}
+\renewcommand*{\Authfont}{\normalsize}
+
+
+$if(title)$
+\title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
+$endif$
+
+$if(subtitle)$
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{$subtitle$}
+$endif$
+
+\author{
+$for(by-author)$
+{\large{\textsc{$it.name.literal$}}$if(it.orcid)$~\orcidlink{$it.orcid$}$endif$}
+$for(it.affiliations)$\\
+\normalsize{$it.name$}
+$endfor$
+\normalsize{\href{mailto:$it.email$}{$it.email$}}
+$endfor$
+}
+
+
+
+% $for(by-author)$
+% \author[$for(it.affiliations)$$it.number$$sep$,$endfor$]{$by-author.name.literal$}
+% $endfor$
+%
+% $if(it.email)$
+% \href{mailto:$it.email$}{$it.email$}
+% $endif$
+%
+% $for(by-affiliation)$
+% \affil[$it.number$]{$it.name$}
+% $endfor$
+
+\date{$date$}
 
 
 

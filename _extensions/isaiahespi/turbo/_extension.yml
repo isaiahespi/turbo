@@ -14,19 +14,19 @@ contributes:
           echo: false
     pdf:
       pdf-engine: lualatex
-      documentclass: article
+      documentclass: scrartcl
       papersize: a4
       fontsize: 11pt
       number-sections: true
       keep-tex: true
       indent: false
-      
+
       # Document styling
       geometry:
-        - top=2.5cm
-        - bottom=2.5cm
-        - left=3cm
-        - right=2cm
+        - top=20mm
+        - left=20mm
+        - heightrounded
+
       
       # citations and links
       colorlinks: true
@@ -43,13 +43,14 @@ contributes:
       cite-method: biblatex
       biblatex-chicago: false  # Custom flag for enabling biblatex-chicago
       biblio-style: authordate
-      biblatexoptions: 
+      csl: american-political-science-association.csl
+      biblatexoptions:
         - backend=biber
         - autolang=hyphen
         - isbn=false
         - uniquename=false
-      
-      # The titlesec package provides its own mechanism for dealing with 
+
+      # The titlesec package provides its own mechanism for dealing with
       # inline/block headings, so we need to disable pandoc's support for it
       # (see https://stackoverflow.com/q/42916124/120898)
       block-headings: false
@@ -58,13 +59,13 @@ contributes:
       template-partials:
         - "partials/before-body.tex"
         - "partials/title.tex"
-        - "partials/_authors.tex"
-      
+        # - "partials/_authors.tex"
       include-in-header:
         - "include-in-header.tex"
-      
+
       format-resources:
         - chicago_apsr.bst
+        - american-political-science-association.csl
         # - apsr.bst
         # - turbo.cls
 
