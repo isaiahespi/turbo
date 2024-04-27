@@ -6,6 +6,7 @@ contributes:
     common:
       filters:
         - color-text.lua
+        - abstract-section
       shortcodes:
         - shortcodes.lua
       knitr:
@@ -13,23 +14,52 @@ contributes:
           echo: false
     pdf:
       pdf-engine: lualatex
-      documentclass: turbo
+      documentclass: article
+      papersize: a4
+      fontsize: 11pt
       number-sections: true
+      keep-tex: true
+      indent: false
+      
+      # Document styling
+      geometry:
+        - top=2.5cm
+        - bottom=2.5cm
+        - left=3cm
+        - right=2cm
+      
+      # citations and links
       colorlinks: true
-      urlcolor: Maroon
+      urlcolor: DarkSlateBlue
       linkcolor: DarkSlateBlue
       citecolor: DarkSlateBlue
       link-citations: true
       filecolor: DarkSlateBlue
       fig-width: 6.5
       fig-height: 4.5
-      # biblio-style: turbo
+      
+      biblio-title: "References"
+      biblio-config: false  # Don't use the default template's biblatex commands
+      cite-method: biblatex
+      biblatex-chicago: false  # Custom flag for enabling biblatex-chicago
+      biblio-style: authordate
+      biblatexoptions: 
+        - backend=biber
+        - autolang=hyphen
+        - isbn=false
+        - uniquename=false
+      
       template: turbo.tex
       template-partials:
         - "partials/before-body.tex"
         - "partials/title.tex"
         - "partials/_authors.tex"
+      
+      include-in-header:
+        - "include-in-header.tex"
+      
       format-resources:
-        - turbo.cls
         - chicago_apsr.bst
-        - apsr.bst
+        # - apsr.bst
+        # - turbo.cls
+

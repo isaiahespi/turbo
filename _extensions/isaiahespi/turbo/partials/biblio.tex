@@ -25,14 +25,30 @@ $endif$
 
 $endif$
 $endif$
+
+
 $if(biblatex)$
-$if(beamer)$
-\begin{frame}[allowframebreaks]{$biblio-title$}
-  \bibliographytrue
-  \printbibliography[heading=none]
-\end{frame}
+% ----------
+% BibLaTeX
+% ----------
+$if(biblatex-chicago)$
+\usepackage[$if(biblio-style)$$biblio-style$,$endif$$for(biblatexoptions)$$biblatexoptions$$sep$,$endfor$]{biblatex-chicago}
 $else$
-\printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
+\usepackage[$if(biblio-style)$style=$biblio-style$,$endif$$for(biblatexoptions)$$biblatexoptions$$sep$,$endfor$]{biblatex}
+$endif$
+
+\setlength\bibitemsep{0pt}  % No space between bib entries
+\setlength\bibhang{\parindent}  % Match document indentation
+
+% Fix biblatex's odd preference for using In: by default.
+\renewbibmacro{in:}{%
+  \ifentrytype{article}{}{%
+  \printtext{\bibstring{}\intitlepunct}}}
+
+\addbibresource{$bibliography$}
+
+% Start bibliography on new page
+\pretocmd{\printbibliography}{\clearpage}{}{}
 $endif$
 
 $endif$

@@ -1,5 +1,6 @@
 ---
 title: "Turbo Article Template"
+subtitle: "For Stuff and Things"
 author:
   # Add additional authors here if needed, by replicating the above entries.
   - name: First Last
@@ -11,17 +12,18 @@ shorttitle: "A Curious Title"
 shortauthor: "F. Last"
 date: last-modified
 date-format: long
-abstract: |
-  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam lobortis facilisis sem. Nullam nec mi et neque pharetra sollicitudin. Praesent imperdiet mi nec ante. Donec ullamcorper, felis non sodales com- modo, lectus velit ultrices augue, a dignissim nibh lectus placerat pede. Vivamus nunc nunc, molestie ut, ultricies vel, semper in, velit. Ut porttitor. Praesent in sapien. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
 format:
   turbo-pdf:
-    keep-tex: true
-    indent: true
-    linestretch: 1.50
-    fontsize: 12pt
-    mainfont: PalatinoLinotype-Roman
+    mainfont: Palatino Linotype
+    classoption: 
+      - twocolumn
 bibliography: references.bib
 ---
+
+# Abstract
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam lobortis facilisis sem. Nullam nec mi et neque pharetra sollicitudin. Praesent imperdiet mi nec ante. Donec ullamcorper, felis non sodales com- modo, lectus velit ultrices augue, a dignissim nibh lectus placerat pede. Vivamus nunc nunc, molestie ut, ultricies vel, semper in, velit. Ut porttitor. Praesent in sapien. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+
 
 # Introduction {#sec-intro}
 
