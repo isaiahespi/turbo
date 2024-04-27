@@ -17,6 +17,7 @@ format:
     mainfont: Palatino Linotype
     classoption: 
       - twocolumn
+      - twoside
 bibliography: references.bib
 ---
 
