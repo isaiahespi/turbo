@@ -49,6 +49,11 @@ contributes:
         - isbn=false
         - uniquename=false
       
+      # The titlesec package provides its own mechanism for dealing with 
+      # inline/block headings, so we need to disable pandoc's support for it
+      # (see https://stackoverflow.com/q/42916124/120898)
+      block-headings: false
+      
       template: turbo.tex
       template-partials:
         - "partials/before-body.tex"

@@ -2,6 +2,9 @@
 % CUSTOM PREAMBLE STUFF
 % -----------------------
 
+\newif\if@normalnumbers\@normalnumbersfalse
+\DeclareOption{normalnumbers}{\@normalnumberstrue}
+
 %----------------------------------------------------------------------------------------
 %	PAGE LAYOUT
 %----------------------------------------------------------------------------------------
@@ -79,17 +82,17 @@
 %----------------------------------------------------------------------------------------
 %	HYPERREF SETUP
 %----------------------------------------------------------------------------------------
-% 
-% \usepackage[usenames,dvipsnames]{xcolor}
-% 
-% \usepackage{hyperref} % For hyperlinks in the PDF
-% \hypersetup{hidelinks,
-%             colorlinks,
-%             breaklinks=true,
-%             linkcolor=DarkSlateBlue,
-%             filecolor=DarkSlateBlue,
-%             citecolor=DarkSlateBlue,
-%             urlcolor=DarkSlateBlue,
-%             bookmarksopen=false}
+
+\usepackage[usenames,dvipsnames]{xcolor}
+
+\usepackage{hyperref} % For hyperlinks in the PDF
+\hypersetup{hidelinks,
+            colorlinks,
+            breaklinks=true,
+            linkcolor=DarkSlateBlue,
+            filecolor=DarkSlateBlue,
+            citecolor=DarkSlateBlue,
+            urlcolor=DarkSlateBlue,
+            bookmarksopen=false}
 
 %----------------------------------------------------------------------------------------
