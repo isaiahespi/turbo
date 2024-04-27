@@ -6,6 +6,14 @@ $-- %%%% TODO %%%%%
 $-- Customize is needed, like below for printing the authors. Otherwise remove this partials to use Quarto default one.
 $-- %%%%%%%%%%%%%%%%
 
+\usepackage{authblk}
+\renewcommand*{\Authsep}{, }
+\renewcommand*{\Authand}{ and }
+\renewcommand*{\Authands}{, and }
+\renewcommand*{\Affilfont}{\normalsize}
+\renewcommand*{\Authfont}{\normalsize}
+
+
 $if(title)$
 \title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
 $endif$
@@ -20,6 +28,15 @@ $if(subtitle)$
 $endif$
 
 \author{${ by-author:_authors.tex()[\and ] }}
+
+% $for(by-author)$
+% \author[$for(it.affiliations)$$it.number$$sep$,$endfor$]{$by-author.name.literal$}
+% $endfor$
+% 
+% $for(by-affiliation)$
+% \affil[$it.number$]{$it.name$}
+% $endfor$
+
 
 \date{$date$}
 
